@@ -1,8 +1,8 @@
 ﻿namespace Domain.Shared;
 
-public class Result
+public class Result<TValue>
 {
-    private Result(bool success, Error error)
+    private Result(bool success, Error error, TValue? value = default)
     {
         if (success && error == Error.None || !success && error != Error.None)
         {
@@ -11,12 +11,17 @@ public class Result
 
         IsSuccess = success;
         Error = error;
+        Value = value;
     }
 
     public bool IsSuccess { get; private set; }
     
+    public TValue? Value { get; private set; }
+    
     public Error Error { get; private set; }
 
-    public static Result Success() => new(true, Error.None);
-    public static Result Failure(Error error) => new(false, error);
+    public static Result<TValue> Success() => new(true, Error.None);
+    public Result<TValue> Success(TValue value) => new(true, Error.None, value);
+    public static Result<TValue> Failure(Error error) => new(false, error);
 }
+
