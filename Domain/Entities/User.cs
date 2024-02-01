@@ -6,11 +6,11 @@ namespace Domain.Entities;
 
 public class User : BaseEntity
 {
-    public string Name { get; set; }
+    public string Name { get; set; } = String.Empty;
     
-    public string Surname { get; set; }
+    public string Surname { get; set; } = String.Empty;
     
-    public string Middlename { get; set; } = String.Empty;
+    public string? Middlename { get; set; }
     
     public string Username { get; set; } = String.Empty;
     
