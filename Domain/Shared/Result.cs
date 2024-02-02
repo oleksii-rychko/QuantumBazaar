@@ -21,7 +21,7 @@ public class Result<TValue>
     public Error Error { get; private set; }
 
     public static Result<TValue> Success() => new(true, Error.None);
-    public Result<TValue> Success(TValue value) => new(true, Error.None, value);
+    public static Result<TValue> Success(TValue? value) => new(true, Error.None, value);
     public static Result<TValue> Failure(Error error) => new(false, error);
 }
 
