@@ -1,3 +1,5 @@
+Web/k8s/postgres-secrets.yml
+
 .idea
 .idea/*
 ## Ignore Visual Studio temporary files, build results, and
